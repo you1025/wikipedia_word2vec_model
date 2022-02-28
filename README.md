@@ -4,10 +4,10 @@
 
 ```sh
 # 開発ツールの導入
-$ sudo yum update
+$ sudo yum -y update
 $ sudo yum groupinstall -y "Development Tools"
 
-# JST
+# タイムゾーンを JST に変更
 $ sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 ```
 
@@ -26,28 +26,16 @@ $ sudo make install
 $ cd ..
 ```
 
-Neologd
-
-```sh
-$ git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
-$ ./mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -a -y
-```
-
-辞書の場所を確認
-
-```
-$ echo "`mecab-config --dicdir`/mecab-ipadic-neologd"
-```
-
 ### python 環境の構築
 
 ```sh
-$ pip install wikiextractor gensim
+$ pip3 install wikiextractor gensim
 ```
 
 # モデルの構築
 
 ```sh
-$ cd src
-$ sh make_wikipedia_word2vec_model.sh
+$ git clone https://github.com/you1025/wikipedia_word2vec_model.git
+$ cd wikipedia_word2vec_model/src
+$ nohup sh make_wikipedia_word2vec_model.sh &
 ```
