@@ -14,7 +14,7 @@ curl https://dumps.wikimedia.org/jawiki/latest/jawiki-latest-pages-articles.xml.
 
 # テキストファイルに変換
 echo "[`date '+%Y-%m-%d %H:%M:%S'`] Clean Wikipedia data..."
-python -m wikiextractor.WikiExtractor ./data/jawiki-latest-pages-articles.xml.bz2 -q -b 100M -o ./data/jawiki_texts
+python3 -m wikiextractor.WikiExtractor ./data/jawiki-latest-pages-articles.xml.bz2 -q -b 100M -o ./data/jawiki_texts
 cat ./data/jawiki_texts/*/wiki_* \
   | sed -e 's/<[^>]*>//g' \
   | sed -e 's/ //g' \
@@ -28,7 +28,7 @@ mecab -d $DIC_DIR -Owakati ./data/jawiki.txt -o ./data/jawiki_wakati.txt -b 1638
 # モデルの作成
 echo "[`date '+%Y-%m-%d %H:%M:%S'`] Make word2vec model by gensim..."
 mkdir -p ./models
-python ./make_gensim_model.py
+python3 ./make_gensim_model.py
 
 
 echo "[`date '+%Y-%m-%d %H:%M:%S'`] Process finish."
