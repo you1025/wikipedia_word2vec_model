@@ -14,8 +14,7 @@ curl https://dumps.wikimedia.org/jawiki/latest/jawiki-latest-pages-articles.xml.
 
 # テキストファイルに変換
 echo "[`date '+%Y-%m-%d %H:%M:%S'`] Clean Wikipedia data..."
-git clone https://github.com/attardi/wikiextractor.git
-python ./wikiextractor/WikiExtractor.py ./data/jawiki-latest-pages-articles.xml.bz2 -q -b 10M -o ./data/jawiki_texts
+python -m wikiextractor.WikiExtractor ./data/jawiki-latest-pages-articles.xml.bz2 -q -b 10M -o ./data/jawiki_texts
 cat ./data/jawiki_texts/jawiki-latest-pages-articles-*.txt \
   | sed -e 's/<[^>]*>//g' \
   | sed -e 's/ //g' \
