@@ -27,7 +27,7 @@ class PrintLoss(CallbackAny2Vec):
 # モデルの作成
 # パラメータ一覧: https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec
 data = word2vec.Text8Corpus("./data/jawiki_wakati.txt")
-model = word2vec.Word2Vec(data, vector_size=200, window=10, min_count=5, workers=8, sg=1, negative=10, compute_loss=True, callbacks=(PrintLoss()), epochs=5, seed=1025)
+model = word2vec.Word2Vec(data, vector_size=200, window=10, min_count=5, workers=8, sg=1, negative=10, compute_loss=True, callbacks=[PrintLoss()], epochs=5, seed=1025)
 
 # モデルの出力
 str_now = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
