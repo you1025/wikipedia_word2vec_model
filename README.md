@@ -34,6 +34,8 @@ $ pip3 install wikiextractor gensim
 
 # モデルの構築
 
+aws の c5.2xlarge(8 cpu / 16 GB-Mem) でだいたい 5 時間くらい掛かる。
+
 ```sh
 $ git clone https://github.com/you1025/wikipedia_word2vec_model.git
 $ cd wikipedia_word2vec_model/src
